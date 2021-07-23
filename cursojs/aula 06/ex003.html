@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa 003</title>
+  <style>
+    body{
+      background-color: coral;
+      color: rgba(69, 52, 223, 0.521);
+      font: normal 30pt Verdana;
+    }
+    /*comentario css*/
+
+  </style>
+
+</head>
+<body>
+
+  <h1>oi, ola mundo</h1>
+  <p>oi, ola mundoppp</p>
+  <!--comentario html-->
+  <script>
+    var n1 = window.prompt('O primeiro número pra somar: ');//aparece uma caixa pra por o nome e ok
+    var n2 = Number.parseFloat(window.prompt('O segundo para somar: ')); // RECEBE STRING
+
+    var n3 = Number(window.prompt('Digite o terceiro número para somar: '));
+    
+    var soma = Number.parseFloat(n1) + n2 + n3;//poderia converter antes
+    //tem o + pra somar
+    //e + pra concatenar
+
+    window.alert(n1+ ' + ' +n2+ ' + '+n3+ ' = '+soma);//+ concatena
+    //OU
+    //window.alert(n1+ ' + ' +n2+ ' + '+n3+ ' = '+soma.toString());
+    //window.alert(n1+ ' + ' +n2+ ' + '+n3+ ' = '+String(soma));
+    window.alert(`O resultado da soma de ${n1} + ${n2} + ${n3} = ${soma.toString()}`)
+
+  </script>
+</body>
+</html>

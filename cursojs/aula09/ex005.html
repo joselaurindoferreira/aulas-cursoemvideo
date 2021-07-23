@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula09</title>
+  <style>
+    body{
+      background-color: rgb(83, 76, 76);
+      color: white;
+      font: normal 15pt Verdana;
+    }
+  </style>
+
+</head>
+<body>
+  <h1>Iniciando os estudos em DOM</h1>
+
+  <div id="01teste"><br>clique em mim div</div>
+  <div id="02teste"><br>clique em mim 22222</div>
+
+  <p> Sou <strong>paragrafo</strong>  <br></p>
+
+  <script>
+    var corpo = document.body;
+    var p1 = document.getElementsByTagName('p')[0];//Elements []
+    var divId = document.getElementById('02teste');
+    //var d = document.querySelector('div#02teste');
+
+    document.write(p1.innerText+'do js');
+    document.write(p1.innerHTML+'do JS com HTML');
+    p1.style.color = 'yellow';
+    corpo.style.background = 'black';
+
+    document.write(divId.innerHTML);
+    divId.style.background = 'gold';
+    divId.innerText = 'Estou aguardando noraml';
+
+    //document.write(d.innerText);
+
+    /*window.document.write(`<br>Olá mundooo!`);
+    window.document.write(window.navigator.appName);
+    window.document.write(window.document.URL);*/
+  </script>
+</body>
+</html>
