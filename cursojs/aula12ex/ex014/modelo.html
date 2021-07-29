@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo de Exercício</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload="calcularHorario()">
+  <header>
+    <h1>Horário</h1>
+  </header>
+  <section>
+    <div id="mensagem">
+      Agora são 
+    </div>
+    <div>
+      <img src="#" alt="Imagem horário" id="imagem-tela-horario">
+
+    </div>
+  </section>
+  <footer>
+    <p>&copy; José Laurindo</p>
+  </footer>
+  
+  <script>
+    function calcularHorario(){
+      var data = new Date();
+      var hora = data.getHours();
+      //var hora = 13;
+      var texto = document.getElementById('mensagem');
+      var imagem = document.getElementById('imagem-tela-horario');
+
+      if(hora >= 0 && hora <= 12){
+        texto.innerHTML = `Agora são ${hora} horas, Bom dia!`;
+        imagem.src = 'manha.jpg';
+        document.body.style.background = 'gold';
+      
+      }else if(hora > 12 && hora <= 18){
+        texto.innerHTML = `Agora são ${hora} horas, Boa tarde!`;
+        imagem.src = 'tarde.jpg';
+        document.body.style.background = 'orange';
+      
+      }else{
+        texto.innerHTML = `Agora são ${hora} horas, Boa noite!`;
+        imagem.src = 'noite.jpg';
+        document.body.style.background = 'gray';
+      }
+
+
+    }      
+  </script>
+</body>
+</html>
