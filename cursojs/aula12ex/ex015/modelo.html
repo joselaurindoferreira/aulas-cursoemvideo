@@ -23,7 +23,8 @@
 
     </div>
     <div>
-      
+      <p id="resultadoVerificarIdadeSexo"></p>
+      <img src="#" alt="">
     </div>
   </section>
   <footer>
@@ -32,8 +33,34 @@
   
   <script>
     function verificarIdadeSexo(){
-      var idadeInput = document.getElementById('dataIdade');
-      var sexoInput = document.getElementById('sexoPessoa');
+      var anoInput = Number(document.getElementById('dataIdade'));
+      var dataAtual = new Date();
+      var anoAtual = dataAtual.getFullYear;
+      var resultadoRetornoHtml = document.getElementById('resultadoVerificarIdadeSexo');
+      var imagem = document.getElementById('imagemPessoaIdade');
+
+      if(anoInput.value == 0 || anoInput.value > anoAtual){
+        resultadoRetornoHtml.innerHTML = `${anoInput.value} a data informada está incorreta!`;
+      }else{
+        var sexo = '';
+        sexo = verificarSexoInputRadio();
+        
+        if(sexo == 'Masculino'){
+          var ;
+          resultadoRetornoHtml.innerHTML = ``;
+        }
+      }
+    }
+
+    function verificarSexoInputRadio(){
+      var sexoInput = document.getElementsByName('sexoPessoa');
+      var sexo = '';
+      if(sexoInput.cheked[0]){
+        sexo = 'Masculino';
+      }else{
+        sexo = 'Feminino';
+      }
+      return sexo;
     }
 
   </script>
