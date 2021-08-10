@@ -4,65 +4,77 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exercício de Idade</title>
+  <title>Exercícios </title>
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
   <header>
-    <h1>Escolha uma idade?</h1>
+    <h1>Verificador de Idade</h1>
   </header>
   <section>
     <div>
-      Escolha a idade: <input type="number" name="dataIdade" id="dataIdade">
-      <br>
-      Escolha o sexo:<input type="radio" name="sexoPessoa" id="sexoPessoaM" checked>
-                        <label for="sexoPessoaM">Masculino</label> 
-                      <input type="radio" name="sexoPessoa" id="sexoPessoaF">
-                        <label for="sexoPessoaF">Feminino</label>
-      <input type="submit" value="Enviar" onClick='verificarIdadeSexo()'>
-
+      <p>Ano de Nascimento:
+        <input type="number" name="txtano" id="txtano" min="1900" max="2021">
+      </p>
+      <p>Sexo:
+        <input type="radio" name="radiosex" id="masc" checked><label for="masc">Masculino</label>
+        <input type="radio" name="radiosex" id="fem"><label for="fem">Feminino</label>
+      </p>
+      <p>
+        <input type="button" value="Verificar" onclick="verificar()">
+      </p>
     </div>
-    <div>
-      <p id="resultadoVerificarIdadeSexo"></p>
-      <img src="#" alt="">
+    <div id="res">
+      Preencha os dados acima para ver o resultado!
     </div>
   </section>
   <footer>
-    <p>&copy; José Laurindo</p>
+    <p>&copy;José Laurindo</p>
   </footer>
-  
+
   <script>
-    function verificarIdadeSexo(){
-      var anoInput = Number(document.getElementById('dataIdade'));
-      var dataAtual = new Date();
-      var anoAtual = dataAtual.getFullYear;
-      var resultadoRetornoHtml = document.getElementById('resultadoVerificarIdadeSexo');
-      var imagem = document.getElementById('imagemPessoaIdade');
-
-      if(anoInput.value == 0 || anoInput.value > anoAtual){
-        resultadoRetornoHtml.innerHTML = `${anoInput.value} a data informada está incorreta!`;
+    function verificar(){
+      var data = new Date();
+      var ano = data.getFullYear();
+      var fano = document.getElementById('txtano');
+      var res = document.getElementById('res');
+      if(fano.value.length == 0 || Number(fano.value > ano)){
+        alert('[Erro] Verifique os dados e difite novamente!');
       }else{
-        var sexo = '';
-        sexo = verificarSexoInputRadio();
-        
-        if(sexo == 'Masculino'){
-          var ;
-          resultadoRetornoHtml.innerHTML = ``;
+        var fsex = document.getElementsByName('radiosex');
+        var idade = ano - Number(fano.value);
+        //res.innerHTML = `Idade calculada é ${idade}`;
+        var genero = '';
+        var img = document.createElement('img');
+        img.setAttribute('id', 'foto');
+        if(fsex[0].checked){
+          genero = 'Homem';
+          if(idade >= 0 && idade <10){
+            img.setAttribute('src', 'menino.jpg');
+          }else if(idade < 21){
+            img.setAttribute('src', 'homem.jpg');
+          }else if(idade < 50){
+            img.setAttribute('src', 'homem.jpg');
+          }else{
+            img.setAttribute('src', 'idoso.jpg');
+          }
+        }else{
+          genero = 'Mulher';
+          if(idade >= 0 && idade <10){
+            img.setAttribute('src', 'menina.jpg');
+          }else if(idade < 21){
+            img.setAttribute('src', 'mulher.jpg');
+          }else if(idade < 50){
+            img.setAttribute('src', 'mulher.jpg');
+          }else{
+            img.setAttribute('src', 'idosa.jpg');
+          }
         }
+        res.style.textAlign = 'center';
+        res.innerHTML = `Detectamos ${genero} com ${idade} anos.`;
+        res.appendChild(img);
       }
     }
-
-    function verificarSexoInputRadio(){
-      var sexoInput = document.getElementsByName('sexoPessoa');
-      var sexo = '';
-      if(sexoInput.cheked[0]){
-        sexo = 'Masculino';
-      }else{
-        sexo = 'Feminino';
-      }
-      return sexo;
-    }
-
   </script>
 </body>
 </html>
